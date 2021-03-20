@@ -1,0 +1,4 @@
+en:
+  errors:
+    email_registered: 'User with such Email already exists'
+    email_incorrect: 'The email is incorrect. Please, make sure you entered correct data'
