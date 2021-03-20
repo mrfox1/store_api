@@ -17,6 +17,8 @@ class User < ApplicationRecord
 
   attr_accessor :password, :password_confirmation
 
+  has_many :sessions, dependent: :destroy
+
   validates :email, presence: true
   validates :email,
             uniqueness: {
@@ -34,6 +36,10 @@ class User < ApplicationRecord
 
   before_validation :downcase_email
   before_save :encrypt_password
+
+  def authenticate?(password)
+    encrypted_password == encrypt(password)
+  end
 
   private
 
