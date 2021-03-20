@@ -41,6 +41,10 @@ class User < ApplicationRecord
     encrypted_password == encrypt(password)
   end
 
+  def info
+    attributes.symbolize_keys.slice(:id, :first_name, :second_name, :email, :created_at, :updated_at)
+  end
+
   private
 
   def validate_password?
