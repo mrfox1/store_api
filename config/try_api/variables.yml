@@ -1,0 +1,37 @@
+variables:
+  access_denied_error: >
+    {
+      "errors": ["Access Denied!"]
+    }
+  session_and_user: >
+    {
+      "session_token": "1da275f9-eb7c-4ba8-a21d-23678c719545",
+      "current_user": {
+        "id": 1,
+        "first_name": 'Test',
+        "last_name": "Test",
+        "email": "user@mail.com",
+        "created_at": "2020-08-27T12:04:06.014Z",
+        "updated_at": "2020-08-27T12:04:06.014Z",
+      }
+    }
+  user: >
+    {
+      "current_user": {
+        "id": 1,
+        "first_name": 'Test',
+        "last_name": "Test",
+        "email": "user@mail.com",
+        "created_at": "2020-08-27T12:04:06.014Z",
+        "updated_at": "2020-08-27T12:04:06.014Z"
+      }
+    }
+  ok: >
+    {
+      "message": "ok"
+    }
+  example_datetime: '2019-11-25T10:36:44.403Z'
+  example_date: '2019-11-25'
+  default_per_page: Default 10
+  default_page: Default 1
+  sort_type: Default asc. [ asc | desc ]

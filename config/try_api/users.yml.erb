@@ -1,0 +1,100 @@
+title: 'Users'
+methods:
+ -
+   title: 'Registration'
+   path: '/users'
+   method: 'post'
+   parameters:
+     -
+       name: 'email'
+       type: 'string'
+       required: true
+     -
+       name: 'password'
+       type: 'string'
+       required: true
+     -
+       name: 'password_confirmation'
+       type: 'string'
+       required: true
+   example_responses:
+     -
+       code: 200
+       response: var:session_and_user
+       type: 'json'
+     -
+       code: 401
+       response: >
+         {
+           "errors": [
+             "The email is incorrect. Please, make sure you entered correct data",
+             "Password can't be blank",
+             "Password is too short (minimum is 6 characters)",
+             "Password confirmation can't be blank"
+           ]
+         }
+       type: 'json'
+ -
+   title: 'Profile'
+   path: '/users/profile'
+   method: 'get'
+   headers:
+     -
+       name: 'Session-Token'
+   example_responses:
+     -
+       code: 200
+       response: var:user
+       type: 'json'
+     -
+       code: 401
+       response: var:access_denied_error
+       type: 'json'
+ -
+   title: 'Update Profile'
+   path: '/users/profile'
+   method: 'put'
+   headers:
+     -
+       name: 'Session-Token'
+   parameters:
+     -
+       name: 'first_name'
+       type: 'string'
+     -
+       name: 'last_name'
+       type: 'string'
+   example_responses:
+     -
+       code: 200
+       response: var:user
+       type: 'json'
+     -
+       code: 401
+       response: var:access_denied_error
+       type: 'json'
+     -
+       code: 422
+       response: >
+         {
+           "errors": [
+             "Full name is too short (minimum is 4 characters)"
+           ]
+         }
+       type: 'json'
+ -
+   title: 'Delete Account'
+   path: '/users/profile'
+   method: 'delete'
+   headers:
+     -
+       name: 'Session-Token'
+   example_responses:
+     -
+       code: 200
+       response: var:ok
+       type: 'json'
+     -
+       code: 401
+       response: var:access_denied_error
+       type: 'json'
