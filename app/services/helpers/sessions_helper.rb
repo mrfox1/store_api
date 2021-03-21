@@ -29,8 +29,4 @@ module SessionsHelper
   def current_user=(user)
     @current_user = user
   end
-
-  def update_firebase_id
-    current_session.update firebase_id: params[:firebase_id] if params[:firebase_id].present?
-  end
 end
