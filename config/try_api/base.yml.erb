@@ -1,0 +1,11 @@
+name: 'StoreApi'
+host: <%= ENV['API_HOST'] || "http://localhost:3000"%>
+api_prefix: '/api/v1'
+
+include!: variables
+
+menu_items:
+  -
+    include!: sessions
+  -
+    include!: users

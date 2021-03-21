@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount TryApi::Engine => '/docs'
+
   namespace :api do
     namespace :v1 do
       resources :users, only: %I[show create] do
