@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   has_many :sessions, dependent: :destroy
 
-  validates :email, presence: true
+  validates :email, :first_name, :last_name, presence: true
   validates :email,
             uniqueness: {
               case_sensitive: false,
@@ -42,7 +42,7 @@ class User < ApplicationRecord
   end
 
   def info
-    attributes.symbolize_keys.slice(:id, :first_name, :second_name, :email, :created_at, :updated_at)
+    attributes.symbolize_keys.slice(:id, :first_name, :last_name, :email, :created_at, :updated_at)
   end
 
   private

@@ -33,6 +33,8 @@ class Api::V1::UsersController < Api::BaseController
 
   def create_params
     params.permit(
+      :first_name,
+      :last_name,
       :email,
       :password,
       :password_confirmation
