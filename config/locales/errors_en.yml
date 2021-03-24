@@ -1,6 +1,7 @@
 en:
   errors:
     access_denied: 'Access Denied!'
+    category_not_found: 'Category not found!'
     email_incorrect: 'The email is incorrect. Please, make sure you entered correct data'
     email_registered: 'User with such Email already exists'
     wrong_email_or_password: 'Invalid Email or Password. Please check the entered data.'
