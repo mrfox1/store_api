@@ -7,12 +7,12 @@ class Api::V1::CategoriesController < Api::BaseController
   end
 
   def show
-    return render_errors I18n.t('errors.category_not_found'), 404 if @category.blank?
+    render_errors I18n.t('errors.category_not_found'), 404 if @category.blank?
   end
 
   private
 
   def set_category
-    @category = Category.find permited_parameter[:id]
+    @category = Category.find_by(id: permited_parameter[:id])
   end
 end
