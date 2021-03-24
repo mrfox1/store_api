@@ -1,0 +1,41 @@
+title: 'Categories'
+methods:
+ -
+   title: 'Categories list'
+   path: '/categories'
+   method: 'get'
+   example_responses:
+     -
+       code: 200
+       response: >
+          {
+            "categories": [
+              {
+                "id": 1,
+                "name": "Category",
+                "created_at": "2020-08-31T12:40:09.846Z",
+                "updated_at": "2020-08-31T12:40:09.846Z"
+              }
+            ]
+          }
+       type: 'json'
+ -
+   title: 'Category details'
+   path: '/categories/:id'
+   method: 'get'
+   headers:
+   example_responses:
+     -
+       code: 200
+       response: >
+        {
+          "id": 1,
+          "name": "Category",
+          "created_at": "2020-08-31T12:40:09.846Z",
+          "updated_at": "2020-08-31T12:40:09.846Z",
+        }
+       type: 'json'
+     -
+       code: 404
+       response: var:category_not_found
+       type: 'json'
