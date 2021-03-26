@@ -11,11 +11,14 @@
 #  salt               :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  role               :integer          default("user")
 #
 class User < ApplicationRecord
   EMAIL_REGEXP = /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/.freeze
 
   attr_accessor :password, :password_confirmation
+
+  enum role: %I[user admin]
 
   has_many :sessions, dependent: :destroy
 
