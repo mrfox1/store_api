@@ -26,6 +26,20 @@ variables:
         "updated_at": "2020-08-27T12:04:06.014Z"
       }
     }
+  users_list: >
+    {
+      "users": [
+        {
+          "id": 1,
+          "first_name": "Test",
+          "last_name": "Test",
+          "email": "user@mail.com",
+          "role":"user"
+          "created_at": "2020-08-27T12:04:06.014Z",
+          "updated_at": "2020-08-27T12:04:06.014Z"
+        }
+      ]
+    }
   ok: >
     {
       "message": "ok"

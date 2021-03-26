@@ -1,0 +1,4 @@
+en:
+  admin:
+    errors:
+      permission_denied: "Permissions Denied!"

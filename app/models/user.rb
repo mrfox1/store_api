@@ -45,7 +45,7 @@ class User < ApplicationRecord
   end
 
   def info
-    attributes.symbolize_keys.slice(:id, :first_name, :last_name, :email, :created_at, :updated_at)
+    attributes.symbolize_keys.slice(:id, :first_name, :last_name, :email, :role, :created_at, :updated_at)
   end
 
   private
