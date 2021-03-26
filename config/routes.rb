@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       namespace :admin do
-        resources :admin_users
+        resources :admin_users do
+          collection do
+            post :create_admin
+          end
+        end
       end
 
       resources :categories, only: %I[index show]

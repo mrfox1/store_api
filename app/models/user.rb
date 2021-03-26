@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   has_many :sessions, dependent: :destroy
 
-  validates :email, :first_name, :last_name, presence: true
+  validates :email, :first_name, :last_name, presence: true, if: -> { self.user? }
   validates :email,
             uniqueness: {
               case_sensitive: false,
@@ -35,7 +35,7 @@ class User < ApplicationRecord
             length: { in: 6..48 }, presence: true, if: -> { email.present? }
 
   validates :password, presence: true, confirmation: true, length: { in: 6..48 }, if: :validate_password?
-  validates :password_confirmation, presence: true, if: :validate_password?
+  validates :password_confirmation, presence: true, if: :validate_password? && :user?
 
   before_validation :downcase_email
   before_save :encrypt_password

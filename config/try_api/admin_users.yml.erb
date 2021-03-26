@@ -16,3 +16,35 @@ methods:
         code: 401
         response: var:access_denied_error
         type: 'json'
+  -
+    title: 'Create Admin'
+    path: '/admin/admin_users/create_admin'
+    method: 'post'
+    headers:
+      -
+        name: 'Session-Token'
+    parameters:
+      -
+        name: 'email'
+        type: 'string'
+        required: true
+      -
+        name: 'password'
+        type: 'string'
+        required: true
+    example_responses:
+      -
+        code: 200
+        response: var:ok
+        type: 'json'
+      -
+        code: 401
+        response: >
+          {
+            "errors": [
+              "The email is incorrect. Please, make sure you entered correct data",
+              "Password can't be blank",
+              "Password is too short (minimum is 6 characters)"
+            ]
+          }
+        type: 'json'
