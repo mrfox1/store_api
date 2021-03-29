@@ -3,6 +3,14 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      namespace :admin do
+        resources :admin_users, only: %I[index show destroy] do
+          collection do
+            post :create_admin
+          end
+        end
+      end
+
       resources :categories, only: %I[index show]
 
       resources :users, only: %I[show create] do

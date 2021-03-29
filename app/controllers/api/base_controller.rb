@@ -24,6 +24,18 @@ class Api::BaseController < ActionController::API
     I18n.locale = I18n.available_locales.include?(locale) ? locale : I18n.default_locale
   end
 
+  def save_record(record, render: nil, status: nil)
+    if record.save
+      if render.present?
+        render render, status: status || :ok
+      else
+        render_ok
+      end
+    else
+      render_errors record.errors.full_messages
+    end
+  end
+
   def render_message(message)
     render json: { message: message }
   end
