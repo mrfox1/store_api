@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       namespace :admin do
-        resources :admin_users do
+        resources :admin_users, only: %I[index show destroy] do
           collection do
             post :create_admin
           end
